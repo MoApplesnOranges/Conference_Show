@@ -75,5 +75,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   } catch (e) {
     // when error is raised
     console.log("An error has occured:", e.message);
+    const alert = document.getElementById("Alert");
+    alert.innerHTML = `<div class="alert alert-danger" role="alert">
+    Error: ${e.message}
+  </div>`;
   }
 });
