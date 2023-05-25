@@ -10,8 +10,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <title>New Location :: Conference GO!</title>
-    <script type="module" src="js/new-location.js"></script>
+    <title>New Conference :: Conference GO!</title>
+    <script type="module" src="js/new-conference.js"></script>
   </head>
   <body>
     <header>
@@ -40,16 +40,13 @@
                 <a class="nav-link" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="new-location.html"
-                  >New Location</a
+                <a class="nav-link" aria-current="page" href="new-location.html"
+                  >New location</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link"
+                  class="nav-link active"
                   aria-current="page"
                   href="new-conference.html"
                   >New Conference</a
@@ -76,8 +73,8 @@
         <div class="row">
           <div class="offset-3 col-6">
             <div class="shadow p-4 mt-4">
-              <h1>Create a new location</h1>
-              <form id="create-location-form">
+              <h1>Create a new conference</h1>
+              <form id="create-conference-form">
                 <div class="form-floating mb-3">
                   <input
                     placeholder="Name"
@@ -91,29 +88,69 @@
                 </div>
                 <div class="form-floating mb-3">
                   <input
-                    placeholder="Room count"
+                    placeholder="Starts"
                     required
-                    type="number"
-                    name="room_count"
-                    id="room_count"
+                    type="date"
+                    name="starts"
+                    id="Starts"
                     class="form-control"
                   />
-                  <label for="room_count">Room count</label>
+                  <label for="Starts">Starts</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input
-                    placeholder="City"
+                    placeholder="Ends"
                     required
-                    type="text"
-                    name="city"
-                    id="city"
+                    type="date"
+                    name="ends"
+                    id="Ends"
                     class="form-control"
                   />
-                  <label for="city">City</label>
+                  <label for="Ends">Ends</label>
                 </div>
                 <div class="mb-3">
-                  <select required id="state" class="form-select" name="state">
-                    <option selected value="">Choose a state</option>
+                  <label for="Description" class="form-label"
+                    >Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="Description"
+                    name="description"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    placeholder="max_Presentations"
+                    required
+                    type="number"
+                    name="max_presentations"
+                    id="max_Presentations"
+                    class="form-control"
+                  />
+                  <label for="max_Presentations" style="text-align: center"
+                    >Maximum Presentations</label
+                  >
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    placeholder="max_attendees"
+                    required
+                    type="number"
+                    name="max_attendees"
+                    id="Max_attendees"
+                    class="form-control"
+                  />
+                  <label for="max_attendees">Maximum Attendees</label>
+                </div>
+                <div class="mb-3">
+                  <select
+                    required
+                    id="location"
+                    class="form-select"
+                    name="location"
+                  >
+                    <option selected value="">Choose a location</option>
                   </select>
                 </div>
                 <button class="btn btn-primary">Create</button>
