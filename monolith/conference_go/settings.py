@@ -28,21 +28,26 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "monolith"]
+ALLOWED_HOSTS = ["localhost", "monolith", "attendees_microservice"]
 
 
 # Override the basic User model with a custom User model
 
 AUTH_USER_MODEL = "accounts.User"
 
-
+DJWTO_MODE = "TWO-COOKIES"
+# set more than 5 minutes? token_lifetime
+DJWTO_ACCESS_TOKEN_LIFETIME = None
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
+    "djwto",
     "accounts.apps.AccountsConfig",
     "events.apps.EventsConfig",
     "presentations.apps.PresentationsConfig",
-    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -53,16 +58,16 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:3000"
 ]
 
 ROOT_URLCONF = "conference_go.urls"
