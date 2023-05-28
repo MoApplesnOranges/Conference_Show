@@ -228,5 +228,5 @@ def api_list_conference_location(request):
     location = Location.objects.order_by("pk")
     lst = []
     for locat in location:
-        lst.append({"location": locat.pk})
+        lst.append({"location": locat.pk, "location_name": locat.name})
     return JsonResponse({"Location": lst})

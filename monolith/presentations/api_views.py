@@ -164,3 +164,11 @@ def api_reject_presentation(request, pk):
         encoder=PresentationDetailEncoder,
         safe=False,
     )
+
+@require_http_methods(["GET"])
+def api_choose_conference(request):
+    conference = Conference.objects.order_by("pk")
+    lst = []
+    for conf in conference:
+        lst.append({"conference": conf.name, "conference_id": conf.pk})
+    return JsonResponse({"Conferences": lst})

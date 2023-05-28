@@ -5,10 +5,12 @@ from .api_views import (
     api_show_presentation,
     api_approve_presentation,
     api_reject_presentation,
+    api_choose_conference
 )
 
 
 urlpatterns = [
+    path("choose_conference/", api_choose_conference, name="api_choose_conference"),
     path(
         "conferences/<int:conference_id>/presentations/",
         api_list_presentations,
